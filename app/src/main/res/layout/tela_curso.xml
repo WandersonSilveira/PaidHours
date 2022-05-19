@@ -21,12 +21,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="40dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaCurso"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="500dp"
             tools:listitem="@layout/item_lista_curso" />
     </LinearLayout>
 
