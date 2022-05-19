@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PaidHours">
+        <activity android:name=".TelaCadastroCurso"></activity>
         <activity
             android:name=".TelaCurso"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".TelaLogin"
             android:screenOrientation="portrait"
