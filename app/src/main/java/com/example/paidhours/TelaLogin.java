@@ -50,7 +50,7 @@ public class TelaLogin extends AppCompatActivity {
     }
 
     private void proEntrar(){
-        Coordenador coordenador = new Coordenador(null, txtLogin.getText().toString(), txtSenha.getText().toString(),null,null,null);
+        Coordenador coordenador = new Coordenador(null, txtLogin.getText().toString(), txtSenha.getText().toString(),0,"Carlos","carlos@unifacear.edu.br");
 
         Intent intent = new Intent(TelaLogin.this, TelaCurso.class);
         intent.putExtra("coordenador", (Serializable) coordenador);

@@ -6,7 +6,7 @@ public class Curso implements Serializable {
 
     private Integer codigo;
     private String nome;
-    private int cargaHoraria;
+    private Integer cargaHoraria;
     private boolean status;
 
     public Curso(Integer codigo, String nome, int cargaHoraria, boolean status) {
@@ -32,11 +32,11 @@ public class Curso implements Serializable {
         this.nome = nome;
     }
 
-    public int getCargaHoraria() {
+    public Integer getCargaHoraria() {
         return cargaHoraria;
     }
 
-    public void setCargaHoraria(int cargaHoraria) {
+    public void setCargaHoraria(Integer cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
     }
 
