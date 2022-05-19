@@ -47,7 +47,7 @@ public class CursoDAO {
 
     public List<Curso> proListar(){
         try {
-            Cursor cursor = gateway.getDatabase().rawQuery("SELECT * FROM AGENDA", null);
+            Cursor cursor = gateway.getDatabase().rawQuery("SELECT * FROM CURSO", null);
 
             while (cursor.moveToNext()){
                 @SuppressLint("Range") Integer codigo = cursor.getInt(cursor.getColumnIndex("CODIGO"));
@@ -61,7 +61,7 @@ public class CursoDAO {
             cursor.close();
         }
         catch (Exception e){
-            Log.d("erro", e.getMessage().toString());
+            Log.d("erro", e.getMessage());
         }
         return  listaCursos;
     }

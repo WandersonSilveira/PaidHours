@@ -20,8 +20,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="403dp"
-        android:orientation="vertical"></LinearLayout>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaCurso"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_lista_curso" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnAdicionarTelaCurso"
