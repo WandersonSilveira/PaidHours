@@ -21,6 +21,7 @@ public class TelaLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         proTiraSplashScreen();
         setContentView(R.layout.tela_login);
         proInicializaComponentes();

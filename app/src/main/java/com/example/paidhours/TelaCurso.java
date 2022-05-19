@@ -66,6 +66,5 @@ public class TelaCurso extends AppCompatActivity {
         final List<Curso> listaCurso = cursoDAO.proListar();
         telaCursoAdapter = new TelaCursoAdapter(listaCurso);
         recyclerView.setAdapter(telaCursoAdapter);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
     }
 }
