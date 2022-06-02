@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,11 +43,27 @@ public class TelaCursoAdapter extends RecyclerView.Adapter<TelaCursoAdapter.Curs
     public class CursoHolder extends RecyclerView.ViewHolder {
         public TextView lblNome;
         public TextView lblCargaHoraria;
+        public Button btnGerenciarAlunos;
+
 
         public CursoHolder(View itemView, final Context context) {
             super(itemView);
             lblNome = itemView.findViewById(R.id.lblNomeTelaItemListaCurso);
             lblCargaHoraria = itemView.findViewById(R.id.lblCargaHorariaItemListaCurso);
+            btnGerenciarAlunos =  itemView.findViewById(R.id.btnGerenciarAlunosItemListaCurso);
+
+            btnGerenciarAlunos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(listaCurso.size() > 0){
+                        Curso curso = listaCurso.get(getLayoutPosition());
+
+                        Intent intent = new Intent(context, TelaAluno.class);
+                        intent.putExtra("CURSO", (Serializable) curso);
+                        context.startActivity(intent);
+                    }
+                }
+            });
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

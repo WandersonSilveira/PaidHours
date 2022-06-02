@@ -1,6 +1,8 @@
 package com.example.paidhours.entidade;
 
-public class Aluno {
+import java.io.Serializable;
+
+public class Aluno implements Serializable {
     private Integer codigo;
     private String nome;
     private Integer matricula;

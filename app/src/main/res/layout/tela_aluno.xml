@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelaAluno"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lblTituloTelaAuno"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="80dp"
+        android:background="@drawable/titulo_bg"
+        android:text="LISTA DE ALUNOS" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaAluno"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            tools:listitem="@layout/item_lista_aluno" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAdicionarTelaAluno"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:text="+" />
+
+</LinearLayout>
