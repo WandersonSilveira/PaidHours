@@ -28,7 +28,6 @@ public class CursoDAO {
         content_values.put("CURSO_CARGA_HORARIA", cargaHoraria);
         content_values.put("CURSO_STATUS", true);
         content_values.put("CURSO_COORDENADOR_FK_CODIGO", codigoCoordenador);
-        //FAZER FK
 
         return gateway.getDatabase().insert(TABLE_CURSO, null, content_values) > 0;
     }
