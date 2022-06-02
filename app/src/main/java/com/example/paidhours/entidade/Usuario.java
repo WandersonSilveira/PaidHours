@@ -4,22 +4,22 @@ import java.io.Serializable;
 
 public class Usuario implements Serializable {
 
-    private Integer codigoLogin;
+    private Integer codigo;
     private String login;
     private String senha;
 
     public Usuario(Integer codigoLogin, String login, String senha) {
-        this.codigoLogin = codigoLogin;
+        this.codigo = codigoLogin;
         this.login = login;
         this.senha = senha;
     }
 
-    public Integer getcodigoLogin() {
-        return codigoLogin;
+    public Integer getCodigo() {
+        return codigo;
     }
 
-    public void setcodigoLogin(Integer codigoLogin) {
-        this.codigoLogin = codigoLogin;
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
     public String getLogin() {

@@ -10,7 +10,7 @@
         android:width="3dp"
         android:color="@android:color/black" />
     <gradient
-        android:startColor="@color/white" android:endColor="@color/verde_fraco" />
+        android:startColor="@color/verde_fraco" android:endColor="@color/verde_forte" />
     <padding
         android:left="10dp"
         android:right="10dp"/>

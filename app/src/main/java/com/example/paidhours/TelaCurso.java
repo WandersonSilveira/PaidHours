@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.CornerPathEffect;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,8 @@ public class TelaCurso extends AppCompatActivity {
     RecyclerView recyclerView;
     TelaCursoAdapter telaCursoAdapter;
 
+    Coordenador coordenador;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +41,13 @@ public class TelaCurso extends AppCompatActivity {
                 proAbrirTelaCadastroCurso();
             }
         });
-
+        proInicializaUsuario();
         proCarregarLista();
+    }
+
+    private void proInicializaUsuario(){
+        Intent intent = getIntent();
+        coordenador = (Coordenador) intent.getSerializableExtra("COORDENADOR");
     }
 
     @Override
@@ -54,6 +62,7 @@ public class TelaCurso extends AppCompatActivity {
 
     private void proAbrirTelaCadastroCurso(){
         Intent intent = new Intent(TelaCurso.this, TelaCadastroCurso.class);
+        intent.putExtra("COORDENADOR", (Serializable) coordenador);
         startActivity(intent);
     }
 
@@ -63,7 +72,7 @@ public class TelaCurso extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         CursoDAO cursoDAO = new CursoDAO(this);
-        final List<Curso> listaCurso = cursoDAO.proListar();
+        final List<Curso> listaCurso = cursoDAO.proListar(coordenador.getCodigo());
         telaCursoAdapter = new TelaCursoAdapter(listaCurso);
         recyclerView.setAdapter(telaCursoAdapter);
     }

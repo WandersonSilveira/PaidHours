@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.paidhours.entidade.Coordenador;
 import com.example.paidhours.entidade.Curso;
 
 import DAO.CursoDAO;
@@ -23,13 +24,14 @@ public class TelaCadastroCurso extends AppCompatActivity {
     Button btnExcluir;
 
     Integer codigoRecebido = null;
+    Coordenador coordenador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_cadastro_curso);
         proInicializaComponentes();
-        proCarregaInformacaoEdicao();
+        proCarregaInformacao();
 
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,8 +41,9 @@ public class TelaCadastroCurso extends AppCompatActivity {
         });
     }
 
-    private void proCarregaInformacaoEdicao(){
+    private void proCarregaInformacao(){
         Intent intent = getIntent();
+        coordenador = (Coordenador) intent.getSerializableExtra("COORDENADOR");
         Curso curso = (Curso) intent.getSerializableExtra("CURSO");
 
         if(curso != null){
@@ -89,7 +92,7 @@ public class TelaCadastroCurso extends AppCompatActivity {
 
             //SE TIVER CÓDIGO FAZ UPDATE, SENÃO, FAZ INSERT
             if(codigoRecebido == null){
-                if(cursoDao.proCadastrar(nome, cargaHoraria)){
+                if(cursoDao.proCadastrar(nome, cargaHoraria, coordenador.getCodigo())){
                     Toast.makeText(getBaseContext(), "Cadastrado com sucesso", Toast.LENGTH_LONG).show();
                 }
                 else{
