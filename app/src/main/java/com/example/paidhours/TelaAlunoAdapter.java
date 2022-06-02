@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.paidhours.entidade.Aluno;
+import com.example.paidhours.entidade.Curso;
 
 import java.io.Serializable;
 import java.util.List;
@@ -42,11 +44,27 @@ public class TelaAlunoAdapter extends RecyclerView.Adapter<TelaAlunoAdapter.Alun
     public class AlunoHolder extends RecyclerView.ViewHolder {
         public TextView lblNome;
         public TextView lblMatricula;
+        public Button btnGerenciarCertificados;
+
 
         public AlunoHolder(View itemView, final Context context) {
             super(itemView);
             lblNome = itemView.findViewById(R.id.lblNomeTelaItemListaAluno);
             lblMatricula = itemView.findViewById(R.id.lblMatriculaItemListaAluno);
+            btnGerenciarCertificados = itemView.findViewById(R.id.btnGerenciarCertificadosItemListaAluno);
+
+            btnGerenciarCertificados.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(listaAluno.size() > 0){
+                        Aluno aluno = listaAluno.get(getLayoutPosition());
+
+                        Intent intent = new Intent(context, TelaCertificado.class);
+                        intent.putExtra("ALUNO", (Serializable) aluno);
+                        context.startActivity(intent);
+                    }
+                }
+            });
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

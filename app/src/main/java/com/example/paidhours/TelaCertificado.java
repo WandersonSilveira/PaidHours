@@ -10,34 +10,34 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.paidhours.entidade.Aluno;
-import com.example.paidhours.entidade.Coordenador;
+import com.example.paidhours.entidade.Certificado;
 import com.example.paidhours.entidade.Curso;
 
 import java.io.Serializable;
 import java.util.List;
 
 import DAO.AlunoDAO;
-import DAO.CursoDAO;
+import DAO.CertificadoDAO;
 
-public class TelaAluno extends AppCompatActivity {
+public class TelaCertificado extends AppCompatActivity {
 
-    Button btnAdicionarAluno;
+    Button btnAdicionarCertificado;
 
     RecyclerView recyclerView;
-    TelaAlunoAdapter telaAlunoAdapter;
+    TelaCertificadoAdapter telaCertificadoAdapter;
 
-    Curso curso;
+    Aluno aluno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_aluno);
+        setContentView(R.layout.tela_certificado);
         proInicializaComponentes();
 
-        btnAdicionarAluno.setOnClickListener(new View.OnClickListener() {
+        btnAdicionarCertificado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                proAbrirTelaCadastroAluno();
+                proAbrirTelaCadastroCertificado();
             }
         });
         proInicializaUsuario();
@@ -46,7 +46,7 @@ public class TelaAluno extends AppCompatActivity {
 
     private void proInicializaUsuario(){
         Intent intent = getIntent();
-        curso = (Curso) intent.getSerializableExtra("CURSO");
+        aluno = (Aluno) intent.getSerializableExtra("ALUNO");
     }
 
     @Override
@@ -56,24 +56,25 @@ public class TelaAluno extends AppCompatActivity {
     }
 
     private void proInicializaComponentes(){
-        btnAdicionarAluno = findViewById(R.id.btnAdicionarTelaAluno);
+        btnAdicionarCertificado = findViewById(R.id.btnAdicionarTelaCertificado);
     }
 
-    private void proAbrirTelaCadastroAluno(){
-        Intent intent = new Intent(TelaAluno.this, TelaCadastroAluno.class);
-        intent.putExtra("CURSO", (Serializable) curso);
+    private void proAbrirTelaCadastroCertificado(){
+        Intent intent = new Intent(TelaCertificado.this, TelaCadastroCertificado.class);
+        intent.putExtra("ALUNO", (Serializable) aluno);
         startActivity(intent);
     }
 
     private void proCarregarLista(){
-        recyclerView = findViewById(R.id.listaAluno);
+        recyclerView = findViewById(R.id.listaCertificado);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        AlunoDAO alunoDAO = new AlunoDAO(this);
-        final List<Aluno> listaAluno = alunoDAO.proListar(curso.getCodigo());
-        telaAlunoAdapter = new TelaAlunoAdapter(listaAluno);
-        recyclerView.setAdapter(telaAlunoAdapter);
+        CertificadoDAO certificadoDAO = new CertificadoDAO(this);
+        final List<Certificado> listaCertificado = certificadoDAO.proListar(aluno.getCodigo());
+        telaCertificadoAdapter = new TelaCertificadoAdapter(listaCertificado);
+        recyclerView.setAdapter(telaCertificadoAdapter);
     }
+
 
 }

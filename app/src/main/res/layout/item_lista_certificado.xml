@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/lista_bg">
+
+    <TextView
+        android:id="@+id/lblNomeTelaItemListaCertificado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nome"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/lblDescricaoItemListaCertificado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descrição"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/lblCargaHorariaItemListaCertificado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Carga horária"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginTop="5dp"/>
+
+</LinearLayout>

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TelaAluno"
+    tools:context=".TelaCertificado"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/lblTituloTelaAluno"
+        android:id="@+id/lblTituloTelaCertificado"
         style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="110dp"
+        android:layout_marginLeft="60dp"
         android:layout_marginTop="40dp"
-        android:layout_marginRight="80dp"
+        android:layout_marginRight="60dp"
         android:background="@drawable/titulo_bg"
-        android:text="LISTA DE ALUNOS" />
+        android:text="LISTA DE CERTIFICADOS" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,14 +25,14 @@
         android:layout_marginTop="40dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listaAluno"
+            android:id="@+id/listaCertificado"
             android:layout_width="match_parent"
             android:layout_height="500dp"
-            tools:listitem="@layout/item_lista_aluno" />
+            tools:listitem="@layout/item_lista_certificado" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnAdicionarTelaAluno"
+        android:id="@+id/btnAdicionarTelaCertificado"
         style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
