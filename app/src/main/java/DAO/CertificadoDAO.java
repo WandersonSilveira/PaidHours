@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.example.paidhours.entidade.Aluno;
 import com.example.paidhours.entidade.Certificado;
 
 import java.sql.Blob;
@@ -72,6 +73,17 @@ public class CertificadoDAO {
             Log.d("erro", e.getMessage());
         }
         return  listaCertificados;
+    }
+
+    public List<Certificado> proListarFiltrado(Integer codigoAluno, String pesquisa){
+        List<Certificado> listaFiltrada = new ArrayList<>();
+
+        for (Certificado certificado : proListar(codigoAluno)){
+            if(certificado.getNome().toLowerCase().contains(pesquisa.toLowerCase()) || certificado.getDescricao().toLowerCase().contains(pesquisa.toLowerCase()) || certificado.getCargaHoraria().toString().toLowerCase().contains(pesquisa.toLowerCase())){
+                listaFiltrada.add(certificado);
+            }
+        }
+        return  listaFiltrada;
     }
 
 }
