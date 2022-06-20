@@ -71,4 +71,15 @@ public class AlunoDAO {
         return  listaAlunos;
     }
 
+    public List<Aluno> proListarFiltrado(Integer codigoCurso, String pesquisa){
+        List<Aluno> listaFiltrada = new ArrayList<>();
+
+        for (Aluno aluno : proListar(codigoCurso)){
+            if(aluno.getNome().contains(pesquisa) || aluno.getMatricula().toString().contains(pesquisa)){
+                listaFiltrada.add(aluno);
+            }
+        }
+        return  listaFiltrada;
+    }
+
 }
