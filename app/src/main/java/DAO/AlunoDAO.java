@@ -23,21 +23,23 @@ public class AlunoDAO {
         gateway = DBGateway.getInstance(context);
     }
 
-    public boolean proCadastrar(String nome, Integer matricula, Integer codigoCurso){
+    public boolean proCadastrar(String nome, Integer matricula, byte[] imagem, Integer codigoCurso){
         ContentValues content_values = new ContentValues();
         content_values.put("ALUNO_NOME", nome);
         content_values.put("ALUNO_MATRICULA", matricula);
+        content_values.put("ALUNO_IMAGEM", imagem);
         content_values.put("ALUNO_STATUS", true);
         content_values.put("ALUNO_CURSO_FK_CODIGO", codigoCurso);
 
         return gateway.getDatabase().insert(TABLE_ALUNO, null, content_values) > 0;
     }
 
-    public boolean proAlterar(Integer codigo, String nome, Integer matricula, Boolean status){
+    public boolean proAlterar(Integer codigo, String nome, Integer matricula, byte[] imagem, Boolean status){
         ContentValues content_values = new ContentValues();
         content_values.put("ALUNO_CODIGO", codigo);
         content_values.put("ALUNO_NOME", nome);
         content_values.put("ALUNO_MATRICULA", matricula);
+        content_values.put("ALUNO_IMAGEM", imagem);
         content_values.put("ALUNO_STATUS", status);
 
         return gateway.getDatabase().update(TABLE_ALUNO, content_values, "ALUNO_CODIGO = ?", new String[]{codigo + ""} ) > 0;
@@ -55,9 +57,10 @@ public class AlunoDAO {
                 @SuppressLint("Range") Integer codigo = cursor.getInt(cursor.getColumnIndex("ALUNO_CODIGO"));
                 @SuppressLint("Range") String nome = cursor.getString(cursor.getColumnIndex("ALUNO_NOME"));
                 @SuppressLint("Range") Integer matricula = cursor.getInt(cursor.getColumnIndex("ALUNO_MATRICULA"));
+                @SuppressLint("Range") byte[] imagem = cursor.getBlob(cursor.getColumnIndex("ALUNO_IMAGEM"));
                 @SuppressLint("Range") Boolean status = cursor.getInt(cursor.getColumnIndex("ALUNO_STATUS")) > 0;
 
-                listaAlunos.add(new Aluno(codigo, nome, matricula, status));
+                listaAlunos.add(new Aluno(codigo, nome, matricula, imagem, status));
             }
 
             cursor.close();
