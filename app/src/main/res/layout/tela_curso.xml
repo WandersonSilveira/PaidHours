@@ -24,6 +24,11 @@
         android:orientation="vertical"
         android:layout_marginTop="40dp">
 
+        <EditText
+            android:id="@+id/txtBuscaTelaCurso"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaCurso"
             android:layout_width="match_parent"

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.example.paidhours.entidade.Aluno;
 import com.example.paidhours.entidade.Curso;
 
 import java.util.ArrayList;
@@ -65,5 +66,16 @@ public class CursoDAO {
             Log.d("erro", e.getMessage());
         }
         return  listaCursos;
+    }
+
+    public List<Curso> proListarFiltrado(Integer codigoCoordenador, String pesquisa){
+        List<Curso> listaFiltrada = new ArrayList<>();
+
+        for (Curso curso : proListar(codigoCoordenador)){
+            if(curso.getNome().toLowerCase().contains(pesquisa.toLowerCase()) || curso.getCargaHoraria().toString().toLowerCase().contains(pesquisa.toLowerCase()) ){
+                listaFiltrada.add(curso);
+            }
+        }
+        return  listaFiltrada;
     }
 }

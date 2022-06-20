@@ -75,7 +75,7 @@ public class AlunoDAO {
         List<Aluno> listaFiltrada = new ArrayList<>();
 
         for (Aluno aluno : proListar(codigoCurso)){
-            if(aluno.getNome().contains(pesquisa) || aluno.getMatricula().toString().contains(pesquisa)){
+            if(aluno.getNome().toLowerCase().contains(pesquisa.toLowerCase()) || aluno.getMatricula().toString().toLowerCase().contains(pesquisa.toLowerCase())){
                 listaFiltrada.add(aluno);
             }
         }
