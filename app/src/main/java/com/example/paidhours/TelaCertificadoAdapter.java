@@ -2,9 +2,12 @@ package com.example.paidhours;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,7 +36,17 @@ public class TelaCertificadoAdapter extends RecyclerView.Adapter<TelaCertificado
         holder.lblNome.setText("Nome:   " + listaCertificado.get(position).getNome());
         holder.lblDescricao.setText("Descricao:   " + (listaCertificado.get(position).getDescricao()));
         holder.lblCargaHoraria.setText("Carga horária:   " + (listaCertificado.get(position).getCargaHoraria()));
+        //Imagem
+        Bitmap raw;
+        byte[] fotoArray;
+        fotoArray = (listaCertificado.get(position).getImagem());
+        if(fotoArray!=null){
+            raw  = BitmapFactory.decodeByteArray(fotoArray,0,fotoArray.length);
+            holder.ivImagem.setImageBitmap(raw);
+        }
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -44,12 +57,14 @@ public class TelaCertificadoAdapter extends RecyclerView.Adapter<TelaCertificado
         public TextView lblNome;
         public TextView lblDescricao;
         public TextView lblCargaHoraria;
+        public ImageView ivImagem;
 
         public CertificadoHolder(View itemView, final Context context) {
             super(itemView);
             lblNome = itemView.findViewById(R.id.lblNomeTelaItemListaCertificado);
             lblDescricao = itemView.findViewById(R.id.lblDescricaoItemListaCertificado);
             lblCargaHoraria = itemView.findViewById(R.id.lblCargaHorariaItemListaCertificado);
+            ivImagem = itemView.findViewById(R.id.ivImagemTelaItemListaCertificado);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

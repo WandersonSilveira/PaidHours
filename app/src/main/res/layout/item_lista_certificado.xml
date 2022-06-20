@@ -5,6 +5,12 @@
     android:layout_height="wrap_content"
     android:background="@drawable/lista_bg">
 
+    <ImageView
+        android:id="@+id/ivImagemTelaItemListaCertificado"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/lista_bg"/>
+
     <TextView
         android:id="@+id/lblNomeTelaItemListaCertificado"
         android:layout_width="match_parent"

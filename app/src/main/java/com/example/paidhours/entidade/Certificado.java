@@ -7,17 +7,19 @@ public class Certificado implements Serializable {
     private String nome;
     private String descricao;
     private Integer cargaHoraria;
+    private byte[] imagem;
     private Boolean status;
 
     public Certificado(){
 
     }
 
-    public Certificado(Integer codigo, String nome, String descricao, Integer cargaHoraria, Boolean status) {
+    public Certificado(Integer codigo, String nome, String descricao, Integer cargaHoraria, byte[] imagem, Boolean status) {
         this.codigo = codigo;
         this.nome = nome;
         this.descricao = descricao;
         this.cargaHoraria = cargaHoraria;
+        this.imagem = imagem;
         this.status = status;
     }
 
@@ -51,6 +53,14 @@ public class Certificado implements Serializable {
 
     public void setCargaHoraria(Integer cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
+    }
+
+    public byte[] getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
     }
 
     public Boolean getStatus() {
