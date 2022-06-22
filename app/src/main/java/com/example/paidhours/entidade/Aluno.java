@@ -8,17 +8,21 @@ public class Aluno implements Serializable {
     private Integer matricula;
     private byte[] imagem;
     private Boolean status;
+    private Integer horasCurso;
+    private Integer horasCertificado;
 
     public Aluno(){
 
     }
 
-    public Aluno(Integer codigo, String nome, Integer matricula, byte[] imagem, Boolean status) {
+    public Aluno(Integer codigo, String nome, Integer matricula, byte[] imagem, Boolean status, Integer horasCurso, Integer horasCertificado) {
         this.codigo = codigo;
         this.nome = nome;
         this.matricula = matricula;
         this.imagem = imagem;
         this.status = status;
+        this.horasCurso = horasCurso;
+        this.horasCertificado = horasCertificado;
     }
 
     public Integer getCodigo() {
@@ -59,5 +63,21 @@ public class Aluno implements Serializable {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public Integer getHorasCurso() {
+        return horasCurso;
+    }
+
+    public void setHorasCurso(Integer horasCurso) {
+        this.horasCurso = horasCurso;
+    }
+
+    public Integer getHorasCertificado() {
+        return horasCertificado;
+    }
+
+    public void setHorasCertificado(Integer horasCertificado) {
+        this.horasCertificado = horasCertificado;
     }
 }

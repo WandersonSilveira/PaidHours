@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.util.Log;
 
 import com.example.paidhours.entidade.Aluno;
+import com.example.paidhours.entidade.Certificado;
 import com.example.paidhours.entidade.Curso;
 
 import java.util.ArrayList;
@@ -60,7 +61,7 @@ public class AlunoDAO {
                 @SuppressLint("Range") byte[] imagem = cursor.getBlob(cursor.getColumnIndex("ALUNO_IMAGEM"));
                 @SuppressLint("Range") Boolean status = cursor.getInt(cursor.getColumnIndex("ALUNO_STATUS")) > 0;
 
-                listaAlunos.add(new Aluno(codigo, nome, matricula, imagem, status));
+                listaAlunos.add(new Aluno(codigo, nome, matricula, imagem, status,0,0));
             }
 
             cursor.close();
@@ -80,6 +81,17 @@ public class AlunoDAO {
             }
         }
         return  listaFiltrada;
+    }
+
+    public Integer proRetornaHorasCertificados(Context context, Integer codigoAluno){
+        Integer horasComplementares = 0;
+        CertificadoDAO certificadoDAO = new CertificadoDAO(context);
+
+        for(Certificado certificado : certificadoDAO.proListar(codigoAluno)){
+            horasComplementares += certificado.getCargaHoraria();
+        }
+
+        return horasComplementares;
     }
 
 }

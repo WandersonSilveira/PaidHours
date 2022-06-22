@@ -100,8 +100,24 @@ public class TelaAluno extends AppCompatActivity {
 
         AlunoDAO alunoDAO = new AlunoDAO(this);
         final List<Aluno> listaAluno = alunoDAO.proListarFiltrado(curso.getCodigo(), String.valueOf(txtBuscaTelaAluno.getText()));
+
+        //Curso
+        for(Aluno aluno : listaAluno){
+            aluno.setHorasCurso(curso.getCargaHoraria());
+        }
+        //Certificado
+        for(Aluno aluno : listaAluno){
+            aluno.setHorasCertificado(alunoDAO.proRetornaHorasCertificados(this, aluno.getCodigo()));
+        }
+
         telaAlunoAdapter = new TelaAlunoAdapter(listaAluno);
         recyclerView.setAdapter(telaAlunoAdapter);
+    }
+
+    private void proPopulaDadosAluno(List<Aluno> listaAluno){
+
+
+
     }
 
     private void proCarregarLista(){
@@ -111,6 +127,16 @@ public class TelaAluno extends AppCompatActivity {
 
         AlunoDAO alunoDAO = new AlunoDAO(this);
         final List<Aluno> listaAluno = alunoDAO.proListar(curso.getCodigo());
+
+        //Curso
+        for(Aluno aluno : listaAluno){
+            aluno.setHorasCurso(curso.getCargaHoraria());
+        }
+        //Certificado
+        for(Aluno aluno : listaAluno){
+            aluno.setHorasCertificado(alunoDAO.proRetornaHorasCertificados(this, aluno.getCodigo()));
+        }
+
         telaAlunoAdapter = new TelaAlunoAdapter(listaAluno);
         recyclerView.setAdapter(telaAlunoAdapter);
     }

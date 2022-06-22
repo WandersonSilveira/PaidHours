@@ -19,6 +19,8 @@ import com.example.paidhours.entidade.Curso;
 import java.io.Serializable;
 import java.util.List;
 
+import DAO.AlunoDAO;
+
 public class TelaAlunoAdapter extends RecyclerView.Adapter<TelaAlunoAdapter.AlunoHolder>{
 
     private final List<Aluno> listaAluno;
@@ -57,7 +59,6 @@ public class TelaAlunoAdapter extends RecyclerView.Adapter<TelaAlunoAdapter.Alun
         public TextView lblMatricula;
         public Button btnGerenciarCertificados;
         public ImageView ivImagem;
-
 
         public AlunoHolder(View itemView, final Context context) {
             super(itemView);
