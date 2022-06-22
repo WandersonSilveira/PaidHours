@@ -114,12 +114,6 @@ public class TelaAluno extends AppCompatActivity {
         recyclerView.setAdapter(telaAlunoAdapter);
     }
 
-    private void proPopulaDadosAluno(List<Aluno> listaAluno){
-
-
-
-    }
-
     private void proCarregarLista(){
         recyclerView = findViewById(R.id.listaAluno);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
