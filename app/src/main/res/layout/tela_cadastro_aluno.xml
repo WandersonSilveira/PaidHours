@@ -49,13 +49,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number"/>
+
+        <TextView
+            android:id="@+id/lblImasgemTelaCadastroAluno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Imagem:"
+            android:layout_marginBottom="10dp"/>
 
         <ImageView
             android:id="@+id/ivImagemTelaCadastroAluno"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/lista_bg"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/lblHorasValidadasTelaCadastroAluno"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/lista_bg"/>
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:visibility="invisible"
+            android:layout_marginBottom="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"

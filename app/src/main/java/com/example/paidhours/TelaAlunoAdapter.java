@@ -13,10 +13,16 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.anychart.anychart.AnyChart;
+import com.anychart.anychart.AnyChartView;
+import com.anychart.anychart.DataEntry;
+import com.anychart.anychart.Pie;
+import com.anychart.anychart.ValueDataEntry;
 import com.example.paidhours.entidade.Aluno;
 import com.example.paidhours.entidade.Curso;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import DAO.AlunoDAO;
@@ -39,14 +45,19 @@ public class TelaAlunoAdapter extends RecyclerView.Adapter<TelaAlunoAdapter.Alun
     public void onBindViewHolder(TelaAlunoAdapter.AlunoHolder holder, int position) {
         holder.lblNome.setText("Nome:   " + listaAluno.get(position).getNome());
         holder.lblMatricula.setText("Mastricula:   " + (listaAluno.get(position).getMatricula()));
+        holder.lblHorasValidadas.setText("Horas validadas:   " + (listaAluno.get(position).getHorasCertificado()) + "/" + listaAluno.get(position).getHorasCurso());
+
         //Imagem
         Bitmap raw;
         byte[] fotoArray;
+
         fotoArray = (listaAluno.get(position).getImagem());
+
         if(fotoArray!=null){
             raw  = BitmapFactory.decodeByteArray(fotoArray,0,fotoArray.length);
             holder.ivImagem.setImageBitmap(raw);
         }
+
     }
 
     @Override
@@ -59,11 +70,14 @@ public class TelaAlunoAdapter extends RecyclerView.Adapter<TelaAlunoAdapter.Alun
         public TextView lblMatricula;
         public Button btnGerenciarCertificados;
         public ImageView ivImagem;
+        public TextView lblHorasValidadas;
+
 
         public AlunoHolder(View itemView, final Context context) {
             super(itemView);
             lblNome = itemView.findViewById(R.id.lblNomeTelaItemListaAluno);
             lblMatricula = itemView.findViewById(R.id.lblMatriculaItemListaAluno);
+            lblHorasValidadas = itemView.findViewById(R.id.lblHorasValidadasItemListaAluno);
             btnGerenciarCertificados = itemView.findViewById(R.id.btnGerenciarCertificadosItemListaAluno);
             ivImagem = itemView.findViewById(R.id.ivImagemTelaItemListaAluno);
 

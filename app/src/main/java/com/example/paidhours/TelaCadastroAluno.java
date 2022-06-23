@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.paidhours.entidade.Aluno;
@@ -33,6 +34,7 @@ public class TelaCadastroAluno extends AppCompatActivity {
 
     EditText txtNome;
     EditText txtMatricula;
+    TextView lblHorasValidadas;
     Button btnSalvar;
     Button btnExcluir;
     ImageView ivImagem;
@@ -92,6 +94,8 @@ public class TelaCadastroAluno extends AppCompatActivity {
         if(aluno != null){
             txtNome.setText(aluno.getNome());
             txtMatricula.setText(aluno.getMatricula().toString());
+            lblHorasValidadas.setVisibility(View.VISIBLE);
+            lblHorasValidadas.setText("Horas validadas:   " + (aluno.getHorasCertificado()) + "/" + aluno.getHorasCurso());
             //Imagem
             Bitmap raw;
             byte[] fotoArray;
@@ -115,10 +119,10 @@ public class TelaCadastroAluno extends AppCompatActivity {
     private void proInicializaComponentes(){
         txtNome = findViewById(R.id.txtLNomeTelaCadastroAluno);
         txtMatricula = findViewById(R.id.txtMatriculaTelaCadastroAluno);
+        lblHorasValidadas = findViewById(R.id.lblHorasValidadasTelaCadastroAluno);
         btnSalvar = findViewById(R.id.btnSalvarTelaCadastroAluno);
         btnExcluir = findViewById(R.id.btnExcluirTelaCadastroAluno);
         ivImagem = findViewById(R.id.ivImagemTelaCadastroAluno);
-
     }
 
     private Boolean proConsisteDados(){
