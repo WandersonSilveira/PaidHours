@@ -143,7 +143,7 @@ public class TelaCadastroAluno extends AppCompatActivity {
         if(proConsisteDados()){
 
             String nome = txtNome.getText().toString();
-            Integer matricula = Integer.parseInt(txtMatricula.getText().toString());
+            Long matricula = Long.parseLong(txtMatricula.getText().toString());
             byte[] imagem = null;
 
             //Imagem

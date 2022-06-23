@@ -44,7 +44,7 @@ public class TelaAlunoAdapter extends RecyclerView.Adapter<TelaAlunoAdapter.Alun
     @Override
     public void onBindViewHolder(TelaAlunoAdapter.AlunoHolder holder, int position) {
         holder.lblNome.setText("Nome:   " + listaAluno.get(position).getNome());
-        holder.lblMatricula.setText("Mastricula:   " + (listaAluno.get(position).getMatricula()));
+        holder.lblMatricula.setText("Matricula:   " + (listaAluno.get(position).getMatricula()));
         holder.lblHorasValidadas.setText("Horas validadas:   " + (listaAluno.get(position).getHorasCertificado()) + "/" + listaAluno.get(position).getHorasCurso());
 
         //Imagem

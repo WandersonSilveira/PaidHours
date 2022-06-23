@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Aluno implements Serializable {
     private Integer codigo;
     private String nome;
-    private Integer matricula;
+    private Long matricula;
     private byte[] imagem;
     private Boolean status;
     private Integer horasCurso;
@@ -15,7 +15,7 @@ public class Aluno implements Serializable {
 
     }
 
-    public Aluno(Integer codigo, String nome, Integer matricula, byte[] imagem, Boolean status, Integer horasCurso, Integer horasCertificado) {
+    public Aluno(Integer codigo, String nome, Long matricula, byte[] imagem, Boolean status, Integer horasCurso, Integer horasCertificado) {
         this.codigo = codigo;
         this.nome = nome;
         this.matricula = matricula;
@@ -41,11 +41,11 @@ public class Aluno implements Serializable {
         this.nome = nome;
     }
 
-    public Integer getMatricula() {
+    public Long getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(Integer matricula) {
+    public void setMatricula(Long matricula) {
         this.matricula = matricula;
     }
 

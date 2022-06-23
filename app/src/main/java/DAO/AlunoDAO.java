@@ -24,7 +24,7 @@ public class AlunoDAO {
         gateway = DBGateway.getInstance(context);
     }
 
-    public boolean proCadastrar(String nome, Integer matricula, byte[] imagem, Integer codigoCurso){
+    public boolean proCadastrar(String nome, Long matricula, byte[] imagem, Integer codigoCurso){
         ContentValues content_values = new ContentValues();
         content_values.put("ALUNO_NOME", nome);
         content_values.put("ALUNO_MATRICULA", matricula);
@@ -35,7 +35,7 @@ public class AlunoDAO {
         return gateway.getDatabase().insert(TABLE_ALUNO, null, content_values) > 0;
     }
 
-    public boolean proAlterar(Integer codigo, String nome, Integer matricula, byte[] imagem, Boolean status){
+    public boolean proAlterar(Integer codigo, String nome, Long matricula, byte[] imagem, Boolean status){
         ContentValues content_values = new ContentValues();
         content_values.put("ALUNO_CODIGO", codigo);
         content_values.put("ALUNO_NOME", nome);
@@ -57,7 +57,7 @@ public class AlunoDAO {
             while (cursor.moveToNext()){
                 @SuppressLint("Range") Integer codigo = cursor.getInt(cursor.getColumnIndex("ALUNO_CODIGO"));
                 @SuppressLint("Range") String nome = cursor.getString(cursor.getColumnIndex("ALUNO_NOME"));
-                @SuppressLint("Range") Integer matricula = cursor.getInt(cursor.getColumnIndex("ALUNO_MATRICULA"));
+                @SuppressLint("Range") Long matricula = cursor.getLong(cursor.getColumnIndex("ALUNO_MATRICULA"));
                 @SuppressLint("Range") byte[] imagem = cursor.getBlob(cursor.getColumnIndex("ALUNO_IMAGEM"));
                 @SuppressLint("Range") Boolean status = cursor.getInt(cursor.getColumnIndex("ALUNO_STATUS")) > 0;
 
