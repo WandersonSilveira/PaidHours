@@ -144,11 +144,15 @@ public class TelaCadastroAluno extends AppCompatActivity {
 
             String nome = txtNome.getText().toString();
             Integer matricula = Integer.parseInt(txtMatricula.getText().toString());
+            byte[] imagem = null;
+
             //Imagem
-            Bitmap bitmap = ((BitmapDrawable) ivImagem.getDrawable()).getBitmap();
-            ByteArrayOutputStream saida = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG,100,saida);
-            byte[] imagem = saida.toByteArray();
+            if(ivImagem.getDrawable() != null){
+                Bitmap bitmap = ((BitmapDrawable) ivImagem.getDrawable()).getBitmap();
+                ByteArrayOutputStream saida = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG,100,saida);
+                imagem = saida.toByteArray();
+            }
 
             AlunoDAO alunoDao = new AlunoDAO(getBaseContext());
 

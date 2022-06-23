@@ -34,7 +34,7 @@ public class TelaCertificadoAdapter extends RecyclerView.Adapter<TelaCertificado
     @Override
     public void onBindViewHolder(TelaCertificadoAdapter.CertificadoHolder holder, int position) {
         holder.lblNome.setText("Nome:   " + listaCertificado.get(position).getNome());
-        holder.lblDescricao.setText("Descricao:   " + (listaCertificado.get(position).getDescricao()));
+        holder.lblDescricao.setText("Descrição:   " + (listaCertificado.get(position).getDescricao()));
         holder.lblCargaHoraria.setText("Carga horária:   " + (listaCertificado.get(position).getCargaHoraria()));
         //Imagem
         Bitmap raw;

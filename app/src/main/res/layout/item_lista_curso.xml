@@ -3,31 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@drawable/lista_bg">
 
-    <TextView
-        android:id="@+id/lblNomeTelaItemListaCurso"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nome"
-        style="@style/TextAppearance.AppCompat.Large"
-        android:layout_marginTop="10dp"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/lblCargaHorariaItemListaCurso"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Carga horária"
-        style="@style/TextAppearance.AppCompat.Large"
-        android:layout_marginTop="5dp"/>
+        <TextView
+            android:id="@+id/lblNomeTelaItemListaCurso"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Nome"
+            android:textSize="18sp"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/lblCargaHorariaItemListaCurso"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Carga horária"
+            android:textSize="14sp"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_marginTop="5dp"/>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnGerenciarAlunosItemListaCurso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gerenciar alunos"
-        android:layout_marginLeft="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:text="Alunos"
         app:backgroundTint="#2196F3" />
 
 </LinearLayout>
