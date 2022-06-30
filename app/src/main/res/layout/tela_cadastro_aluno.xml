@@ -25,6 +25,21 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/lblImasgemTelaCadastroAluno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Imagem:"
+            android:layout_marginBottom="10dp"/>
+
+        <ImageView
+            android:id="@+id/ivImagemTelaCadastroAluno"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/lista_bg"
+            android:layout_marginLeft="140dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
             android:id="@+id/lblNomeTelaCadastroAluno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,25 +68,12 @@
             android:maxLength="10"/>
 
         <TextView
-            android:id="@+id/lblImasgemTelaCadastroAluno"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Imagem:"
-            android:layout_marginBottom="10dp"/>
-
-        <ImageView
-            android:id="@+id/ivImagemTelaCadastroAluno"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/lista_bg"
-            android:layout_marginBottom="10dp"/>
-
-        <TextView
             android:id="@+id/lblHorasValidadasTelaCadastroAluno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/TextAppearance.AppCompat.Large"
             android:visibility="invisible"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"/>
 
         <LinearLayout

@@ -95,7 +95,7 @@ public class TelaCadastroAluno extends AppCompatActivity {
             txtNome.setText(aluno.getNome());
             txtMatricula.setText(aluno.getMatricula().toString());
             lblHorasValidadas.setVisibility(View.VISIBLE);
-            lblHorasValidadas.setText("Horas validadas:   " + (aluno.getHorasCertificado()) + "/" + aluno.getHorasCurso());
+            lblHorasValidadas.setText("Horas validadas:   " + (aluno.getHorasCertificado() >= aluno.getHorasCurso() ? aluno.getHorasCurso() : aluno.getHorasCertificado() ) + "/" + aluno.getHorasCurso());
             //Imagem
             Bitmap raw;
             byte[] fotoArray;

@@ -45,7 +45,16 @@ public class TelaAlunoAdapter extends RecyclerView.Adapter<TelaAlunoAdapter.Alun
     public void onBindViewHolder(TelaAlunoAdapter.AlunoHolder holder, int position) {
         holder.lblNome.setText("Nome:   " + listaAluno.get(position).getNome());
         holder.lblMatricula.setText("Matricula:   " + (listaAluno.get(position).getMatricula()));
-        holder.lblHorasValidadas.setText("Horas validadas:   " + (listaAluno.get(position).getHorasCertificado()) + "/" + listaAluno.get(position).getHorasCurso());
+        holder.lblHorasValidadas.setText("Horas validadas:   " + (listaAluno.get(position).getHorasCertificado() >= listaAluno.get(position).getHorasCurso()
+                ? listaAluno.get(position).getHorasCurso() : listaAluno.get(position).getHorasCertificado()) + "/" + listaAluno.get(position).getHorasCurso());
+
+        if(listaAluno.get(position).getHorasCertificado() >= listaAluno.get(position).getHorasCurso()){
+            holder.ivStatus.setImageResource(R.drawable.concluido);
+        }
+        else{
+            holder.ivStatus.setImageResource(R.drawable.em_andamento);
+
+        }
 
         //Imagem
         Bitmap raw;
@@ -71,6 +80,7 @@ public class TelaAlunoAdapter extends RecyclerView.Adapter<TelaAlunoAdapter.Alun
         public Button btnGerenciarCertificados;
         public ImageView ivImagem;
         public TextView lblHorasValidadas;
+        public ImageView ivStatus;
 
 
         public AlunoHolder(View itemView, final Context context) {
@@ -80,6 +90,7 @@ public class TelaAlunoAdapter extends RecyclerView.Adapter<TelaAlunoAdapter.Alun
             lblHorasValidadas = itemView.findViewById(R.id.lblHorasValidadasItemListaAluno);
             btnGerenciarCertificados = itemView.findViewById(R.id.btnGerenciarCertificadosItemListaAluno);
             ivImagem = itemView.findViewById(R.id.ivImagemTelaItemListaAluno);
+            ivStatus = itemView.findViewById(R.id.ivStatusTelaItemListaAluno);
 
             btnGerenciarCertificados.setOnClickListener(new View.OnClickListener() {
                 @Override
